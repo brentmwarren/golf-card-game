@@ -1,6 +1,20 @@
+@font-face {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@font-face {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
 body {
     background: url('/Users/macuser/sei/deliverables/project-zero/pictures/backgrounds/daytime-field-golf-course-914682.jpg');
-    background-size:100%;
+    background-size: cover;
     background-repeat:no-repeat;
-    min-height:500px;
+    min-height:100vh;
+    margin: 0
 }
+

@@ -210,3 +210,12 @@ const deck = [
     }
   ]
 
+
+// ====================== FUNCTIONS ===============================
+// ================================================================
+// I'm actually not sure how to build the draw card function just yet
+// const drawCard = () => {
+//       r = (deck[Math.floor(Math.random()*deck.length)])
+//       player1.cards.push(r);
+//       cardsArr.splice(r,1);
+// }
