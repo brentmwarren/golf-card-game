@@ -239,8 +239,24 @@ const deck = [
 // ====================== FUNCTIONS ===============================
 // ================================================================
 // I'm actually not sure how to build the draw card function just yet
-// const drawCard = () => {
-//       r = (deck[Math.floor(Math.random()*deck.length)])
-//       player1.cards.push(r);
-//       cardsArr.splice(r,1);
-// }
+const drawCard = () => {
+      r = (deck[Math.floor(Math.random()*deck.length)])
+      return r
+      // player1.cards.push(r);
+      // cardsArr.splice(r,1);
+}
+drawCard()
+
+
+// if a user clicks the deck i need it to draw a random card and make that card visible.
+// the user can then click any card in their hand to replace it,
+// this will automatically discard the card they clicked into the temporary discard pile
+// OR 
+// the user can discard it, and then select a facedown card to flip over! (it will just run the drawcard function and place a random card in that div?/array)
+
+// now its the other persons turn
+
+
+
+// PLAYERS
+// for taking turns, put your players in an array, and then create a loop that will go back and forth between each player
