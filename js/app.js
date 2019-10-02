@@ -1,3 +1,28 @@
+// <!-- Functions -->
+
+// this function was designed to use an overlay that says "Click to start" howver i can't get it to remove the visible class
+// function ready() {
+//   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+//   // let cards = Array.from(document.getElementsByClassName('card'));
+//   // let game = new GOLF(100, cards);
+ 
+//   overlays.forEach(overlay => {
+//       overlay.addEventListener('click', () => {
+//           overlay.classList.remove('visible');
+    
+//       });
+//   });
+
+
+
+
+
+
+
+
+
+
+
 const deck = [
     {
       name: "A of Spades",
