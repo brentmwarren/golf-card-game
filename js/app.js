@@ -211,6 +211,20 @@ const deck = [
   ]
 
 
+  class Player  {
+    constructor(name='Brent', score = 0, cards = [], gamesWon = 0) {
+    this.name = name;
+    this.score = score;
+    this.cards = cards
+    this.gamesWon = gamesWon;
+    }
+}
+
+const player1 = new Player(`Brent`,0,[],0);
+const player2 = new Player(`Obama`,0,[],0);
+
+
+
 // ====================== FUNCTIONS ===============================
 // ================================================================
 // I'm actually not sure how to build the draw card function just yet
@@ -222,7 +236,78 @@ const drawCard = () => {
 }
 drawCard()
 
+const displayImage = () => {
 
+}
+
+// const place a card somewhere function?
+// !!!!!!!!!!!!BUTTONS!!!!!!!!!!!!!!
+
+$('#card1').on ('click',() => {
+  drawCard();
+})
+
+$('#card2').on ('click',() => {
+  drawCard();
+})
+
+$('#card3').on ('click',() => {
+  drawCard();
+})
+
+$('#card4').on ('click',() => {
+  drawCard();
+})
+
+$('#card5').on ('click',() => {
+  drawCard();
+})
+
+$('#card6').on ('click',() => {
+  drawCard();
+})
+
+$('#card7').on ('click',() => {
+  drawCard();
+})
+
+$('#card8').on ('click',() => {
+  drawCard();
+})
+
+$('#card9').on ('click',() => {
+  drawCard();
+})
+
+$('#card10').on ('click',() => {
+  drawCard();
+})
+
+$('#card11').on ('click',() => {
+  drawCard();
+})
+
+$('#card12').on ('click',() => {
+  drawCard();
+})
+
+$('#card13').on ('click',() => {
+  drawCard();
+})
+
+$('#card13').on ('click',() => {
+  drawCard();
+  
+})
+// ==========================================================
+$('#deck').on ('click',() => {
+  drawCard();
+  
+})
+
+$('#discard').on ('click',() => {
+  // take selected card and display it in this temporary array/object
+})
 
 
 // draw a card
