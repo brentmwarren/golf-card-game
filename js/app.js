@@ -1,28 +1,3 @@
-// <!-- Functions -->
-
-// this function was designed to use an overlay that says "Click to start" howver i can't get it to remove the visible class
-// function ready() {
-//   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-//   // let cards = Array.from(document.getElementsByClassName('card'));
-//   // let game = new GOLF(100, cards);
- 
-//   overlays.forEach(overlay => {
-//       overlay.addEventListener('click', () => {
-//           overlay.classList.remove('visible');
-    
-//       });
-//   });
-
-
-
-
-
-
-
-
-
-
-
 const deck = [
     {
       name: "A of Spades",
@@ -241,11 +216,51 @@ const deck = [
 // I'm actually not sure how to build the draw card function just yet
 const drawCard = () => {
       r = (deck[Math.floor(Math.random()*deck.length)])
-      return r
-      // player1.cards.push(r);
-      // cardsArr.splice(r,1);
+      console.log(r)
+      // player1.cards.push(r); I need to push this card into the card the user selects or the discard pile
+      deck.splice(r,1);
 }
 drawCard()
+
+
+
+
+// draw a card
+// figure out was JS and jQeury to use to place a card somewhere. 
+
+
+// <!-- Functions -->
+
+// this function was designed to use an overlay that says "Click to start" howver i can't get it to remove the visible class
+// function ready() {
+//   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+//   // let cards = Array.from(document.getElementsByClassName('card'));
+//   // let game = new GOLF(100, cards);
+ 
+//   overlays.forEach(overlay => {
+//       overlay.addEventListener('click', () => {
+//           overlay.classList.remove('visible');
+    
+//       });
+//   });
+
+
+// EVENT LISTENERS ===============
+// document.getElementById("card").addEventListener("click", drawCard());
+// use onlick function from jquery
+
+// $('#game-container').on('click', $(`#card`), drawCard());
+
+// i need this to append this to the card OR the discardpile and display that image
+
+
+
+
+
+
+
+
+
 
 
 // if a user clicks the deck i need it to draw a random card and make that card visible.
