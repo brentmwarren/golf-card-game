@@ -252,7 +252,7 @@ const drawCard = (event) => {
       
       if(topOfDeck !== null){
         // this is saying - alright a card hasnt been flipped, BUT if my deck been flipped go ahead and discard the flipped deck card
-        discard.push(deck.splice(rIndex,1));
+        // discard.push(deck.splice(rIndex,1));
         $(event.target).css('content',`url(${topOfDeck})`);
         // if turn == true add values to player1 if false add to player2
         // player1Hand =+ deck[rIndex].value
