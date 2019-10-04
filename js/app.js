@@ -211,18 +211,18 @@ const deck = [
   ]
 
 
-  class Player  {
-    constructor(name='Brent', score = 0, tempHand = [], hand = [], gamesWon = 0) {
-    this.name = name;
-    this.score = score;
-    this.tempHand = tempHand
-    this.hand = hand
-    this.gamesWon = gamesWon;
-    }
-}
+//   class Player  {
+//     constructor(name='Brent', score = 0, tempHand = [], hand = [], gamesWon = 0) {
+//     this.name = name;
+//     this.score = score;
+//     this.tempHand = tempHand
+//     this.hand = hand
+//     this.gamesWon = gamesWon;
+//     }
+// }
 
-const player1 = new Player(`Brent`,0,[],0);
-const player2 = new Player(`Obama`,0,[],0);
+// const player1 = new Player(`Brent`,0,[],0);
+// const player2 = new Player(`Obama`,0,[],0);
 
 // tempHand1 = []
 // tempHand2 = []
@@ -230,38 +230,55 @@ const player2 = new Player(`Obama`,0,[],0);
 let topOfDeck = null;
 const discard = [];
 
+const player1Hand = 0;
+const player2Hand = 0;
+
+let turn = true;
+
 // ====================== FUNCTIONS ===============================
 // ================================================================
 
-const movetoDiscard = (img) => {
-  console.log('moving img', img);
-}
 
 
 // I'm actually not sure how to build the draw card function just yet
 const drawCard = (event) => {
-  if (event.target.classList.contains("flipped") === false) {
+  if (event.target.classList.contains("flipped") === false){
+    
+    // this is saying if the card has NOT been flipped do the thing below, which happens to be another conditional
     const rIndex = Math.floor(Math.random()*deck.length)
       r = (deck[rIndex])
       console.log(r)
       console.log(event.target)
       
       if(topOfDeck !== null){
-       discard.push(deck.splice(rIndex,1));
-       $(event.target).css('content',`url(${topOfDeck})`);
-       console.log(discard);
-       $(deck).css('content',`url(/Users/macuser/sei/deliverables/project-zero/pictures/card-pictures/blue_back.png)`)
-      //  and i need to push the card being stored in discard array to the discard div
+        // this is saying - alright a card hasnt been flipped, BUT if my deck been flipped go ahead and discard the flipped deck card
+        discard.push(deck.splice(rIndex,1));
+        $(event.target).css('content',`url(${topOfDeck})`);
+        // if turn == true add values to player1 if false add to player2
+        // player1Hand =+ deck[rIndex].value
+        
+        console.log(player1Hand);
+        console.log(discard);
+
+        $("#deck").removeClass("flipped")
+        $("#deck").css('content',``)
+        topOfDeck = null;
+
+        //  and i need to push the card being stored in discard array to the discard div
+
+        // i got the entire div to disappear. but now all of a sudden my deck isnt gettin spliced properly. the same cards can show up
+
+        $(event.target).css('content',`url(${discard})`);
+
       } else {
         $(event.target).css('content',`url(${r.img})`).addClass("flipped");
-        
       }
-      
   } else {
     if(topOfDeck !== null && event.target.parentNode.classList.contains("deck") === false){
-      movetoDiscard($(event.target).css('content'))
       $(event.target).css('content',`url(${topOfDeck})`);
-      
+      $("#deck").removeClass("flipped")
+        $("#deck").css('content',``)
+        topOfDeck = null;
     }
   }
   if (event.target.parentNode.classList.contains("deck") === true){
@@ -280,19 +297,19 @@ $('.card').on ('click',(event) => {
   drawCard(event);
 }) // this function above replaced the next 60 lines of code...haha
 
-$('.deck').on ('click',(event) => {
-  drawCard(event);
-}) 
+// $('.deck').on ('click',(event) => {
+//   drawCard(event);
+// }) 
 
 // $('.deck').on ('click',(event) => {
 // replaceCard(event);
 // });
 
-const replaceCard = (event) => {
-    if (event.target.classList.contains("flipped") === true) {
-      $(event.target).css('content',`url(${deck.img})`);
-  }
-}
+// const replaceCard = (event) => {
+//     if (event.target.classList.contains("flipped") === true) {
+//       $(event.target).css('content',`url(${deck.img})`);
+//   }
+// }
 
 // $('#card2').on ('click',() => {
 //   drawCard();
@@ -383,3 +400,12 @@ const replaceCard = (event) => {
 
 // PLAYERS
 // for taking turns, put your players in an array, and then create a loop that will go back and forth between each player
+
+
+
+
+//  const endOfGame = () => {
+//   if cards ID of flipped 
+
+
+// }
