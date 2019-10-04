@@ -224,22 +224,52 @@ const deck = [
 const player1 = new Player(`Brent`,0,[],0);
 const player2 = new Player(`Obama`,0,[],0);
 
-tempHand1 = []
-tempHand2 = []
+// tempHand1 = []
+// tempHand2 = []
+
+let topOfDeck = null;
+const discard = [];
 
 // ====================== FUNCTIONS ===============================
 // ================================================================
+
+const movetoDiscard = (img) => {
+  console.log('moving img', img);
+}
+
+
 // I'm actually not sure how to build the draw card function just yet
 const drawCard = (event) => {
   if (event.target.classList.contains("flipped") === false) {
-      r = (deck[Math.floor(Math.random()*deck.length)])
+    const rIndex = Math.floor(Math.random()*deck.length)
+      r = (deck[rIndex])
       console.log(r)
       console.log(event.target)
-      // player1.tempHand.push(r); 
-      $(event.target).css('content',`url(${r.img})`).addClass("flipped");
-      deck.splice(r,1);
+      
+      if(topOfDeck !== null){
+       discard.push(deck.splice(rIndex,1));
+       $(event.target).css('content',`url(${topOfDeck})`);
+       console.log(discard);
+       $(deck).css('content',`url(/Users/macuser/sei/deliverables/project-zero/pictures/card-pictures/blue_back.png)`)
+      //  and i need to push the card being stored in discard array to the discard div
+      } else {
+        $(event.target).css('content',`url(${r.img})`).addClass("flipped");
+        
+      }
+      
+  } else {
+    if(topOfDeck !== null && event.target.parentNode.classList.contains("deck") === false){
+      movetoDiscard($(event.target).css('content'))
+      $(event.target).css('content',`url(${topOfDeck})`);
+      
+    }
+  }
+  if (event.target.parentNode.classList.contains("deck") === true){
+    topOfDeck= r.img;
+    console.log(topOfDeck);
   }
 }
+
 //////////////////////////////
 
   // drawCard()
@@ -248,11 +278,21 @@ const drawCard = (event) => {
 
 $('.card').on ('click',(event) => {
   drawCard(event);
-})
+}) // this function above replaced the next 60 lines of code...haha
 
 $('.deck').on ('click',(event) => {
   drawCard(event);
-})
+}) 
+
+// $('.deck').on ('click',(event) => {
+// replaceCard(event);
+// });
+
+const replaceCard = (event) => {
+    if (event.target.classList.contains("flipped") === true) {
+      $(event.target).css('content',`url(${deck.img})`);
+  }
+}
 
 // $('#card2').on ('click',() => {
 //   drawCard();
@@ -313,56 +353,33 @@ $('.deck').on ('click',(event) => {
 
 // })
 
-// $('#discard').on ('click',() => {
-//   // take selected card and display it in this temporary array/object
-// })
 
 
-// draw a card
-// figure out was JS and jQeury to use to place a card somewhere. 
 
 
-// <!-- Functions -->
+// write a function to re-set the ID of the deck card to the flipped card in a users hand 
 
-// this function was designed to use an overlay that says "Click to start" howver i can't get it to remove the visible class
-// function ready() {
-//   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-//   // let cards = Array.from(document.getElementsByClassName('card'));
-//   // let game = new GOLF(100, cards);
-//   overlays.forEach(overlay => {
-//       overlay.addEventListener('click', () => {
-//           overlay.classList.remove('visible');
-//       });
-//   });
+// so you click the deck once to get a new card to display. boom done. Then you can click the discard pile OR any other card.
+
+// this puts the card you clicked in the discard pile!
+// THEN you can override the css 
+// when you click this needs to override the css class and add the deck-drawn card to the new spot. 
 
 
-// EVENT LISTENERS ===============
-// document.getElementById("card").addEventListener("click", drawCard());
-// use onlick function from jquery
-
-// $('#game-container').on('click', $(`#card`), drawCard());
-
-// i need this to append this to the card OR the discardpile and display that image
+// 1) if the deck card has a class of flipped THEN listen for another click and put that card where the click happes
 
 
 
 
 
 
+// if the card has the flipped ID - move that card to the discard pile
 
+// I want to be able to have a score displayed when all the users cards have been flipped
 
+// theres needs to be a comparision of the cards in each persons and then add a Round won point to the user with the best score
 
-
-
-// if a user clicks the deck i need it to draw a random card and make that card visible.
-// the user can then click any card in their hand to replace it,
-// this will automatically discard the card they clicked into the temporary discard pile
-// OR 
-// the user can discard it, and then select a facedown card to flip over! (it will just run the drawcard function and place a random card in that div?/array)
-
-// now its the other persons turn
-
-
+// lets make it useable and then i'll work on limiting each players actions// 
 
 // PLAYERS
 // for taking turns, put your players in an array, and then create a loop that will go back and forth between each player
