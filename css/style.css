@@ -119,7 +119,7 @@ body {
     grid-gap: 10px;
 }
 
-.drawcard {
+.temphand {
     display: flex;
     justify-content: flex-start;
     padding: 0 215px;

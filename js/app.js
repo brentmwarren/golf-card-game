@@ -212,10 +212,11 @@ const deck = [
 
 
   class Player  {
-    constructor(name='Brent', score = 0, cards = [], gamesWon = 0) {
+    constructor(name='Brent', score = 0, tempHand = [], hand = [], gamesWon = 0) {
     this.name = name;
     this.score = score;
-    this.cards = cards
+    this.tempHand = tempHand
+    this.hand = hand
     this.gamesWon = gamesWon;
     }
 }
@@ -223,91 +224,98 @@ const deck = [
 const player1 = new Player(`Brent`,0,[],0);
 const player2 = new Player(`Obama`,0,[],0);
 
-
+tempHand1 = []
+tempHand2 = []
 
 // ====================== FUNCTIONS ===============================
 // ================================================================
 // I'm actually not sure how to build the draw card function just yet
-const drawCard = () => {
+const drawCard = (event) => {
+  if (event.target.classList.contains("flipped") === false) {
       r = (deck[Math.floor(Math.random()*deck.length)])
       console.log(r)
-      // player1.cards.push(r); I need to push this card into the card the user selects or the discard pile
+      console.log(event.target)
+      // player1.tempHand.push(r); 
+      $(event.target).css('content',`url(${r.img})`).addClass("flipped");
       deck.splice(r,1);
+  }
 }
-drawCard()
+//////////////////////////////
 
-const displayImage = () => {
+  // drawCard()
 
-}
-
-// const place a card somewhere function?
 // !!!!!!!!!!!!BUTTONS!!!!!!!!!!!!!!
 
-$('#card1').on ('click',() => {
-  drawCard();
+$('.card').on ('click',(event) => {
+  drawCard(event);
 })
 
-$('#card2').on ('click',() => {
-  drawCard();
+$('.deck').on ('click',(event) => {
+  drawCard(event);
 })
 
-$('#card3').on ('click',() => {
-  drawCard();
-})
+// $('#card2').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card4').on ('click',() => {
-  drawCard();
-})
+// $('#card3').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card5').on ('click',() => {
-  drawCard();
-})
+// $('#card4').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card6').on ('click',() => {
-  drawCard();
-})
+// $('#card5').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card7').on ('click',() => {
-  drawCard();
-})
+// $('#card6').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card8').on ('click',() => {
-  drawCard();
-})
+// $('#card7').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card9').on ('click',() => {
-  drawCard();
-})
+// $('#card8').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card10').on ('click',() => {
-  drawCard();
-})
+// $('#card9').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card11').on ('click',() => {
-  drawCard();
-})
+// $('#card10').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card12').on ('click',() => {
-  drawCard();
-})
+// $('#card11').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card13').on ('click',() => {
-  drawCard();
-})
+// $('#card12').on ('click',() => {
+//   drawCard();
+// })
 
-$('#card13').on ('click',() => {
-  drawCard();
-  
-})
+// $('#card13').on ('click',() => {
+//   drawCard();
+// })
+
+// $('#card13').on ('click',() => {
+//   drawCard();
+// })
 // ==========================================================
-$('#deck').on ('click',() => {
-  drawCard();
-  
-})
+// $('#deck').on ('click',() => {
+//   tempHand1.push(drawCard()); 
+//   // and put it in the drawCard temp space
+// const endOfGame = () =>
 
-$('#discard').on ('click',() => {
-  // take selected card and display it in this temporary array/object
-})
+// })
+
+// $('#discard').on ('click',() => {
+//   // take selected card and display it in this temporary array/object
+// })
 
 
 // draw a card
@@ -321,11 +329,9 @@ $('#discard').on ('click',() => {
 //   let overlays = Array.from(document.getElementsByClassName('overlay-text'));
 //   // let cards = Array.from(document.getElementsByClassName('card'));
 //   // let game = new GOLF(100, cards);
- 
 //   overlays.forEach(overlay => {
 //       overlay.addEventListener('click', () => {
 //           overlay.classList.remove('visible');
-    
 //       });
 //   });
 
