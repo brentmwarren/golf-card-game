@@ -11,6 +11,9 @@
 </head>
 <body>
  <h1 class="page-title">GOLF</h1>
+ <h2>
+    <button class="runScores">Click here to calculate winner!</button>
+ </h2>
     <!-- <div class="overlay-text visible">
             Click to Start
     </div>
@@ -24,13 +27,14 @@
     </div> -->
 
     <!---------- PLAYER 1 GAME CONTAINER --------->
+    
     <div id="player1" class="game-container"> 
         <div class="game-info-container">
             <div class="game-info">
                 <span id="player1">Player 1</span>
             </div>
             <div class="game-info">
-                Score <span id="score">6</span>
+                <!-- Score <span id="score">6</span> -->
             </div>
         </div>
         
@@ -52,7 +56,7 @@
                     <span id="player2">Player 2</span>
                 </div>
                 <div class="game-info">
-                    Score <span id="score">0</span>
+                    <!-- Score <span id="score">0</span> -->
                 </div>
         </div>
 
@@ -89,8 +93,13 @@
                         <div class="card" id="deck"></div>
                 </div>
                 <div class="rules">
-                        <div id="rulesHeader">Rules</div>
-                        <div>Goal of the game is to get the lowest score!</div>
+                        <div id="rules">Rules</div>
+                        <p>Goal of the game is to get the lowest score!</p>
+                        <p></p>
+                        <p>Each player flips two cards to start</p>
+                        <p>You can then decide to replace a flipped card with a card from the deck or flip a random card</p>
+                        <p>When one palyer has all 9 flipped, the other player must flip their cards and click to calculate the winner</p>
+
                 </div>
         </div>
      

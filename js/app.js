@@ -264,10 +264,6 @@ const drawCard = (event) => {
         $("#deck").css('content',``)
         topOfDeck = null;
 
-        //  and i need to push the card being stored in discard array to the discard div
-
-        // i got the entire div to disappear. but now all of a sudden my deck isnt gettin spliced properly. the same cards can show up
-
         $(event.target).css('content',`url(${discard})`);
 
       } else {
@@ -286,6 +282,15 @@ const drawCard = (event) => {
     console.log(topOfDeck);
   }
 }
+
+
+const calculateWinner = () => {
+  // $("#player1#$card").value(value)
+$("player1.card").val()
+// this needs to compare the scores (which im going to add up as we go with += or -+, then use an alert to tell the user who won! )
+};
+
+console.log(calculateWinner())
 
 //////////////////////////////
 
