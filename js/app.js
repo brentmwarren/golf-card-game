@@ -230,8 +230,8 @@ const deck = [
 let topOfDeck = null;
 const discard = [];
 
-const player1Hand = 0;
-const player2Hand = 0;
+const player1Score = 0;
+const player2Score = 0;
 
 let turn = true;
 
@@ -252,16 +252,14 @@ const drawCard = (event) => {
       
       if(topOfDeck !== null){
         // this is saying - alright a card hasnt been flipped, BUT if my deck been flipped go ahead and discard the flipped deck card
-        // discard.push(deck.splice(rIndex,1));
+        discard.push(deck.splice(rIndex,1));
         $(event.target).css('content',`url(${topOfDeck})`);
         // if turn == true add values to player1 if false add to player2
-        // player1Hand =+ deck[rIndex].value
         
         console.log(player1Hand);
         console.log(discard);
 
-        $("#deck").removeClass("flipped")
-        $("#deck").css('content',``)
+     
         topOfDeck = null;
 
         $(event.target).css('content',`url(${discard})`);
@@ -284,6 +282,8 @@ const drawCard = (event) => {
 }
 
 
+
+// THis is unfinished.
 const calculateWinner = () => {
   // $("#player1#$card").value(value)
 $("player1.card").val()
@@ -414,3 +414,8 @@ $('.card').on ('click',(event) => {
 
 
 // }
+
+function popUp() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
