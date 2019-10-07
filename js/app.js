@@ -230,8 +230,8 @@ const deck = [
 let topOfDeck = null;
 const discard = [];
 
-const player1Score = 0;
-const player2Score = 0;
+// const player1Score = 0;
+// const player2Hand = 0;
 
 let turn = true;
 
@@ -255,23 +255,24 @@ const drawCard = (event) => {
         discard.push(deck.splice(rIndex,1));
         $(event.target).css('content',`url(${topOfDeck})`);
         // if turn == true add values to player1 if false add to player2
+        // player1Hand =+ deck[rIndex].value
         
-        console.log(player1Hand);
-        console.log(discard);
 
-     
+
+        $("#deck").removeClass("flipped")
+        $("#deck").css('content',``)
         topOfDeck = null;
 
         $(event.target).css('content',`url(${discard})`);
 
       } else {
-        $(event.target).css('content',`url(${r.img})`).addClass("flipped");
+        $(event.target).css('content',`url(${r.img})`).addClass("flipped").attr('data-card-value',`${r.value}`);
       }
   } else {
     if(topOfDeck !== null && event.target.parentNode.classList.contains("deck") === false){
       $(event.target).css('content',`url(${topOfDeck})`);
       $("#deck").removeClass("flipped")
-        $("#deck").css('content',``)
+      $("#deck").css('content',``)
         topOfDeck = null;
     }
   }
@@ -283,14 +284,14 @@ const drawCard = (event) => {
 
 
 
-// THis is unfinished.
-const calculateWinner = () => {
-  // $("#player1#$card").value(value)
-$("player1.card").val()
-// this needs to compare the scores (which im going to add up as we go with += or -+, then use an alert to tell the user who won! )
-};
+// // THis is unfinished.
+// const calculateWinner = () => {
+//   // $("#player1#$card").value(value)
+// $("player1.card").val()
+// // this needs to compare the scores (which im going to add up as we go with += or -+, then use an alert to tell the user who won! )
+// };
 
-console.log(calculateWinner())
+// console.log(calculateWinner())
 
 //////////////////////////////
 
@@ -367,13 +368,7 @@ $('.card').on ('click',(event) => {
 // $('#card13').on ('click',() => {
 //   drawCard();
 // })
-// ==========================================================
-// $('#deck').on ('click',() => {
-//   tempHand1.push(drawCard()); 
-//   // and put it in the drawCard temp space
-// const endOfGame = () =>
 
-// })
 
 
 
@@ -388,34 +383,33 @@ $('.card').on ('click',(event) => {
 // when you click this needs to override the css class and add the deck-drawn card to the new spot. 
 
 
-// 1) if the deck card has a class of flipped THEN listen for another click and put that card where the click happes
-
-
-
-
-
-
-// if the card has the flipped ID - move that card to the discard pile
-
-// I want to be able to have a score displayed when all the users cards have been flipped
-
-// theres needs to be a comparision of the cards in each persons and then add a Round won point to the user with the best score
-
-// lets make it useable and then i'll work on limiting each players actions// 
-
-// PLAYERS
-// for taking turns, put your players in an array, and then create a loop that will go back and forth between each player
-
-
-
-
-//  const endOfGame = () => {
-//   if cards ID of flipped 
-
-
-// }
-
-function popUp() {
+const popUp = () => {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
+
+
+// to pull the card data!
+// document.getElementById("card1").dataset.cardValue
+
+const compareScores = () => {
+player1Arr = []
+player2Arr = []
+
+
+$(".player1cards").each(function() {player1Arr.push($(this).attr(`data-card-value`))})
+$(".player2cards").each(function() {player2Arr.push($(this).attr(`data-card-value`))})
+
+if (arrSum(player1Arr) < arrSum(player2Arr)) 
+{ console.log(player1Arr)
+  console.log(player2Arr)
+return "player 1 won"
+} else {
+  console.log(player1Arr)
+console.log(player2Arr)
+return "player 2 won"
+}
+};
+
+const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+

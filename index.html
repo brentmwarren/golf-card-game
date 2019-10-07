@@ -11,6 +11,7 @@
 </head>
 <body>
  <h1 class="page-title">GOLF</h1>
+
  <h2>
     <button class="runScores">Click here to calculate winner!</button>
  </h2>
@@ -38,15 +39,15 @@
             </div>
         </div>
         
-        <div id="card1" class="card" ></div>
-        <div id="card2" class="card" ></div>
-        <div id="card3" class="card" ></div>
-        <div id="card4" class="card" ></div>
-        <div id="card5" class="card" ></div>
-        <div id="card6" class="card" ></div>
-        <div id="card7" class="card" ></div>
-        <div id="card8" class="card" ></div>
-        <div id="card9" class="card" ></div>  
+        <div id="card1" class="card player1cards" ></div>
+        <div id="card2" class="card player1cards" ></div>
+        <div id="card3" class="card player1cards" ></div>
+        <div id="card4" class="card player1cards" ></div>
+        <div id="card5" class="card player1cards" ></div>
+        <div id="card6" class="card player1cards" ></div>
+        <div id="card7" class="card player1cards" ></div>
+        <div id="card8" class="card player1cards" ></div>
+        <div id="card9" class="card player1cards" ></div>  
     </div>
 
     <!---------- PLAYER 2 GAME CONTAINER ---------->
@@ -60,15 +61,15 @@
                 </div>
         </div>
 
-        <div id="card10" class="card"></div>
-        <div id="card11" class="card"></div>
-        <div id="card12" class="card"></div>
-        <div id="card13" class="card"></div>
-        <div id="card14" class="card"></div>
-        <div id="card15" class="card"></div>
-        <div id="card16" class="card"></div>
-        <div id="card17" class="card"></div>
-        <div id="card18" class="card"></div>   
+        <div id="card10" class="card player2cards"></div>
+        <div id="card11" class="card player2cards"></div>
+        <div id="card12" class="card player2cards"></div>
+        <div id="card13" class="card player2cards"></div>
+        <div id="card14" class="card player2cards"></div>
+        <div id="card15" class="card player2cards"></div>
+        <div id="card16" class="card player2cards"></div>
+        <div id="card17" class="card player2cards"></div>
+        <div id="card18" class="card player2cards"></div>   
     </div>
 
         <!--------- Center Deck/Discard Pile/Temp Hands ----------->
@@ -88,22 +89,31 @@
     </div> -->
 
         <div id="center-container">
-            
+                <div class="popup" onclick="popUp()">Rules
+                        <span class="popuptext" id="myPopup">Goal of the game is to get the lowest score!
+                            <p>Each player flips two cards to start</p>
+                            <p>Each turn a player can decide to replace a flipped card with a card from the deck or flip a random card</p>
+                            <p>When one player has all 9 flipped, the other player must flip their cards and click to calculate the winner</p>
+                            <p class="cardValues">Card Values</p>
+                            <p>A=1</p>
+                            <p>2=2</p>
+                            <p>3=3</p>
+                            <p>4=4</p>
+                            <p>5=-5</p>
+                            <p>6=6</p>
+                            <p>7=7</p>
+                            <p>8=8</p>
+                            <p>9=9</p>
+                            <p>10=10</p>
+                            <p>J=10</p>
+                            <p>Q=10</p>
+                            <p>K=0</p>
+                    
+                        </span>
+                      </div>
                 <div class="deck">
                         <div class="card" id="deck"></div>
                 </div>
-                <!-- <div class="rules">
-                        <div id="rules">Rules</div>
-                        <p>Goal of the game is to get the lowest score!</p>
-                        <p></p>
-                        <p>Each player flips two cards to start</p>
-                        <p>You can then decide to replace a flipped card with a card from the deck or flip a random card</p>
-                        <p>When one palyer has all 9 flipped, the other player must flip their cards and click to calculate the winner</p>
-
-                </div> -->
-                <div class="popup" onclick="popUp()">Rules
-                    <span class="popuptext" id="myPopup">Popup text...</span>
-                  </div>
         </div>
      
     
