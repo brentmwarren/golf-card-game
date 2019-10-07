@@ -211,29 +211,9 @@ const deck = [
   ]
 
 
-//   class Player  {
-//     constructor(name='Brent', score = 0, tempHand = [], hand = [], gamesWon = 0) {
-//     this.name = name;
-//     this.score = score;
-//     this.tempHand = tempHand
-//     this.hand = hand
-//     this.gamesWon = gamesWon;
-//     }
-// }
-
-// const player1 = new Player(`Brent`,0,[],0);
-// const player2 = new Player(`Obama`,0,[],0);
-
-// tempHand1 = []
-// tempHand2 = []
 
 let topOfDeck = null;
 const discard = [];
-
-// const player1Score = 0;
-// const player2Hand = 0;
-
-let turn = true;
 
 // ====================== FUNCTIONS ===============================
 // ================================================================
@@ -409,16 +389,10 @@ const compareScores = () => {
   if (arrSum(player1Arr) < arrSum(player2Arr)) 
   { 
   $(".winner").html("player 1 won")
-  console.log(arrSum(player1Arr))
-  console.log(arrSum(player2Arr))
   } else if (arrSum(player1Arr) < arrSum(player2Arr)) {
   $(".winner").html("player 2 won")
-  console.log(arrSum(player1Arr))
-  console.log(arrSum(player2Arr))
   } else {
     $(".winner").html("It's a tie!")
-    console.log(arrSum(player1Arr))
-    console.log(arrSum(player2Arr))
   }
   };
   
