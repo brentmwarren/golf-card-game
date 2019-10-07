@@ -393,23 +393,23 @@ const popUp = () => {
 // document.getElementById("card1").dataset.cardValue
 
 const compareScores = () => {
-player1Arr = []
-player2Arr = []
-
-
-$(".player1cards").each(function() {player1Arr.push($(this).attr(`data-card-value`))})
-$(".player2cards").each(function() {player2Arr.push($(this).attr(`data-card-value`))})
-
-if (arrSum(player1Arr) < arrSum(player2Arr)) 
-{ console.log(player1Arr)
+  player1Arr = []
+  player2Arr = []
+  
+  
+  $(".player1cards").each(function() {player1Arr.push($(this).attr(`data-card-value`))})
+  $(".player2cards").each(function() {player2Arr.push($(this).attr(`data-card-value`))})
+  
+  if (arrSum(player1Arr) < arrSum(player2Arr)) 
+  { console.log(player1Arr)
+    console.log(player2Arr)
+  return "player 1 won"
+  } else {
+    console.log(player1Arr)
   console.log(player2Arr)
-return "player 1 won"
-} else {
-  console.log(player1Arr)
-console.log(player2Arr)
-return "player 2 won"
-}
-};
-
-const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+  return "player 2 won"
+  }
+  };
+  
+  const arrSum = arr => arr.reduce((a,b) => a + b, 0)
 
