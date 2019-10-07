@@ -89,7 +89,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    padding: 10px 265px;
+    padding: 10px 270px;
     display: grid;
     grid-gap: 10px;
 }
@@ -151,3 +151,66 @@ h2 {
     from {opacity: 0;}
     to {opacity:1 ;}
   }
+
+
+
+/* Winner pop up */
+/* ======================================== */
+
+/* RULES BUTTON */
+.compareScores {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: white;
+    text-emphasis-color: blue;
+    color: rgb(0, 153, 255);
+    border-radius: 5px;
+    text-align: center;
+}
+
+  /* The actual popup the shows up */
+.compareScores .winner {
+    visibility: hidden;
+    width: 300px;
+    background-color: rgba(128, 128, 128, 0.942);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    /* bottom: 125%; */
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -50px;
+}
+
+  /* Popup arrow */
+.compareScores .winner::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    bottom: 20%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.compareScores .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}

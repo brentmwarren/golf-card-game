@@ -270,7 +270,7 @@ const drawCard = (event) => {
       }
   } else {
     if(topOfDeck !== null && event.target.parentNode.classList.contains("deck") === false){
-      $(event.target).css('content',`url(${topOfDeck})`);
+      $(event.target).css('content',`url(${topOfDeck})`).attr('data-card-value',`${r.value}`);
       $("#deck").removeClass("flipped")
       $("#deck").css('content',``)
         topOfDeck = null;
@@ -388,28 +388,32 @@ const popUp = () => {
   popup.classList.toggle("show");
 }
 
+const winner = () => {
+  var winner = document.getElementById("winnerPopUp");
+  winner.classList.toggle("show");
+  compareScores();
+}
+
 
 // to pull the card data!
 // document.getElementById("card1").dataset.cardValue
+
 
 const compareScores = () => {
   player1Arr = []
   player2Arr = []
   
-  
   $(".player1cards").each(function() {player1Arr.push($(this).attr(`data-card-value`))})
   $(".player2cards").each(function() {player2Arr.push($(this).attr(`data-card-value`))})
   
   if (arrSum(player1Arr) < arrSum(player2Arr)) 
-  { console.log(player1Arr)
-    console.log(player2Arr)
-  return "player 1 won"
+  { 
+  $(".winner").html("player 1 won")
+  } else if (arrSum(player1Arr) < arrSum(player2Arr)) {
+  $(".winner").html("player 2 won")
   } else {
-    console.log(player1Arr)
-  console.log(player2Arr)
-  return "player 2 won"
+    $(".winner").html("It's a tie!")
   }
   };
   
   const arrSum = arr => arr.reduce((a,b) => a + b, 0)
-
