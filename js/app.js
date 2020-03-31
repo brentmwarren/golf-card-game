@@ -263,6 +263,8 @@ const drawCard = (event) => {
 }
 
 
+// oh wow. can't believe this was my first project. good to see you again old friend
+
 
 // // THis is unfinished.
 // const calculateWinner = () => {
